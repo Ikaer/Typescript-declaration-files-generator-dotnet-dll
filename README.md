@@ -31,15 +31,23 @@ The arguments are
 # Example
 An example of generated files from those classes
 
+classX.cs
+```C#
+namespace TestLibrary
+{
+    public class ClassX<T>
+    {
+        public T AGenericProperty { get; set; }
+    }
+}
+```
+
 class0.cs
 ```C#
 using TypescriptGeneratorCommons;
 
 namespace TestLibrary
 {
-    /// <summary>
-    /// idid
-    /// </summary>
     [TypescriptOptional]
     public class Class0
     {
@@ -59,18 +67,11 @@ using TypescriptGeneratorCommons;
 
 namespace TestLibrary
 {
-
-    /// <summary>
-    /// iriri
-    /// </summary>
     [TypescriptMoreProps("AnotherProp", typeof(Class0), true)]
     public class Class1
     {
         public int MyProp_Int { get; set; }
 
-        /// <summary>
-        /// With some documentation
-        /// </summary>
         public string MyProp_String { get; set; }
 
         public DateTime MyProp_DateTime { get; set; }
@@ -87,11 +88,12 @@ File generated: TestLibrary.d.ts
 ```Typescript
 declare namespace TestLibrary {
 	interface Class0 {
-		PropX?: boolean | string
+		PropX?: number | string | boolean
 		PropY?: Class0
 	}
 
 	interface Class1 {
+		MyGenericPropertyWithAnArgument: ClassX<Class0>
 		MyProp_DateTime: string
 		MyProp_Guid?: string
 		MyProp_Int: number
@@ -103,7 +105,13 @@ declare namespace TestLibrary {
 		AnotherProp?: Class0
 	}
 
+	interface ClassX<T> {
+		AGenericProperty: T
+	}
+
 }
+
+
 ```
 
 # Class and property decorators
