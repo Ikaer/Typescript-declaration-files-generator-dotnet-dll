@@ -9,6 +9,7 @@ This solution:
 * Recursively browse types to add them to declaration files.
 * Can exclude namespaces from generation.
 * Use "any" for specified excluded types.
+* Generic types are transpiled the correct way.
 
 The core projects are "TypescriptGenerator" and "TypescriptGeneratorCommons". "csaTest" and "TestLibrary" are just here to demonstrate the solution.
 
@@ -16,7 +17,7 @@ This project has been developed, among other things:
 * to create proxys between server objects and a client to avoid property or classe names/types breaking changes.
 * To get a list of server returned types without write it down by hand.
 
-
+# How to test the console application
 To test the console application, just change the following command:
 ```
 "C:\Program Files\dotnet\dotnet.exe" exec "X:Path\To\TypescriptFilesGenerator\csaTest\bin\Debug\netcoreapp2.2\csaTest.dll" "X:Path\To\TypescriptFilesGenerator\csaTest\ouput" "X:Path\To\TypescriptFilesGenerator\csaTest\dlls\TestLibrary.dll"
@@ -27,9 +28,9 @@ The arguments are
 * first one is always the output directory for generated declaration files.
 * all arguments after the first one are paths to Dll.
 
-
 # Example
 An example of generated files from those classes
+
 class0.cs
 ```C#
 using TypescriptGeneratorCommons;
@@ -104,3 +105,37 @@ declare namespace TestLibrary {
 
 }
 ```
+
+# Class and property decorators
+
+Some class and property attributes can help you pilot the transpilation.
+
+In order to do that, you must add the project "TypescriptGeneratorCommons" to your projects.
+
+* TypescriptMoreProps:
+To add properties that are not in server side. For example, in javascript you can add property on a object you've get from the server even if this property was not here initialy. This attribute help you to do that.
+
+```C#
+[TypescriptMoreProps("PropertyOnlyOnClientSide", typeof(string), true)]
+public class MyClass {}
+```
+
+* TypescriptOptional
+Can be placed on both classes and properties. This attribute make the properties optional with the question mark in Typescript. It can be useful, because some times, you create new objects which are shaped like the server one, but miss some properties that will be added later.
+
+* TypescriptMoreType
+Can be used to handle type intersection in Typescript. We cannot do that in c#, but because we can in javascript, this attribute allows you to add extra types to your properties.
+
+For example:
+```C#
+[TypescriptMoreType(typeof(string), typeof(bool))]
+public int PropX { get; set; }
+```
+will generate
+```Typescript
+PropX: number | string | boolean
+```
+
+
+
+
