@@ -23,5 +23,7 @@ namespace TestLibrary
 
         [TypescriptOptional]
         public Guid MyProp_Guid { get; set; }
+
+        public ClassX<Class0> MyGenericPropertyWithAnArgument { get; set; }
     }
 }
