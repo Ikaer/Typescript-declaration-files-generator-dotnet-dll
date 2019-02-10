@@ -1,4 +1,4 @@
-# TypescriptGenerator
+# Typescript declaration files generator from .Net dlls.
 Generator of declaration file in Typescript from .Net dlls 
 
 This is a simple project that takes one or more .Net dlls as input and an ouput folder and generates a declaration file for each one of those dll.
