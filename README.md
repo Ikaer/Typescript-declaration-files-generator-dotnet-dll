@@ -9,7 +9,7 @@ This solution:
 * Recursively browses types to add them to declaration files.
 * Can exclude namespaces from generation.
 * Uses "any" for specified excluded types.
-* Trasnpiles generic types the correct way.
+* Transpiles generic types the correct way.
 
 The core projects are "TypescriptGenerator" and "TypescriptGeneratorCommons". "csaTest" and "TestLibrary" are just here to demonstrate the solution.
 
