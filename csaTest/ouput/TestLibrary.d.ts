@@ -1,10 +1,11 @@
 declare namespace TestLibrary {
 	interface Class0 {
-		PropX?: boolean | string
+		PropX?: number | string | boolean
 		PropY?: Class0
 	}
 
 	interface Class1 {
+		MyGenericPropertyWithAnArgument: ClassX<Class0>
 		MyProp_DateTime: string
 		MyProp_Guid?: string
 		MyProp_Int: number
@@ -14,6 +15,10 @@ declare namespace TestLibrary {
 		*/
 		MyProp_Timespan: any
 		AnotherProp?: Class0
+	}
+
+	interface ClassX<T> {
+		AGenericProperty: T
 	}
 
 }
