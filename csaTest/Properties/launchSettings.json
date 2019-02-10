@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "csaTest": {
+      "commandName": "Project",
+      "commandLineArgs": "\"E:\\Dev\\TypescriptGenerator\\TypescriptFilesGenerator\\csaTest\\ouput\" \"E:\\Dev\\TypescriptGenerator\\TypescriptFilesGenerator\\csaTest\\dlls\\TestLibrary.dll\""
+    }
+  }
+}

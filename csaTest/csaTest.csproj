@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TypescriptGenerator\TypescriptGenerator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="dlls\" />
+    <Folder Include="ouput\" />
+  </ItemGroup>
+
+</Project>
