@@ -4,12 +4,12 @@ Generator of declaration file in Typescript from .Net dlls
 This is a simple project that takes one or more .Net dlls as input and an ouput folder and generates a declaration file for each one of those dll.
 
 This solution:
-* Keep namespaces in declaration files
-* Convert "classic" types of .Net into Typescript types.
-* Recursively browse types to add them to declaration files.
+* Keeps namespaces in declaration files
+* Converts "classic" types of .Net into Typescript types.
+* Recursively browses types to add them to declaration files.
 * Can exclude namespaces from generation.
-* Use "any" for specified excluded types.
-* Generic types are transpiled the correct way.
+* Uses "any" for specified excluded types.
+* Trasnpiles generic types the correct way.
 
 The core projects are "TypescriptGenerator" and "TypescriptGeneratorCommons". "csaTest" and "TestLibrary" are just here to demonstrate the solution.
 
