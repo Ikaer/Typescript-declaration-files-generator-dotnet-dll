@@ -10,6 +10,12 @@ This solution:
 * Can exclude namespaces from generation.
 * Uses "any" for specified excluded types.
 * Transpiles generic types the correct way.
+* Handle inheritance.
+
+Limitations:
+* .Net nested classes are generated but not inside classes declaration on Typescript side (it does not exist).
+* Methods are not generated at the moment (but plan to develop it if the need occurs)
+* When a class is declared as a non generic version and a generic version in c# code, a class with suffix 1 will be generated because Typescript does not support same class name even with a difference in genericity. For example classes Shape and Shape<T> inside the same namespace will generate class Shape and class Shape1<T>.
 
 The core projects are "TypescriptGenerator" and "TypescriptGeneratorCommons". "csaTest" and "TestLibrary" are just here to demonstrate the solution.
 
